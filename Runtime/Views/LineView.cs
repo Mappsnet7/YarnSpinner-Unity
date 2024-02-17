@@ -226,6 +226,11 @@ namespace Yarn.Unity
         [SerializeField]
         internal bool autoAdvance = false;
 
+        public void SetAutoAdvance(bool value)
+        {
+        autoAdvance = value;
+        }
+
         [SerializeField]
         internal MarkupPalette palette;
         

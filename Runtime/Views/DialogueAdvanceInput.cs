@@ -245,7 +245,7 @@ namespace Yarn.Unity
         }
 #endif
 
-        internal void onEnable()
+        internal void OnEnable()
         {
             if (dialogueView == null)
             {

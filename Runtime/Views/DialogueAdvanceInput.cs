@@ -282,6 +282,11 @@ namespace Yarn.Unity
 #if USE_INPUTSYSTEM && ENABLE_INPUT_SYSTEM
         private void UserPerformedAdvanceAction(InputAction.CallbackContext obj)
         {
+            // If the game is paused, don't process input for dialogue advancement.
+            if (Time.timeScale == 0f)
+            {
+                return;
+            }
             dialogueView.UserRequestedViewAdvancement();
         }
 #endif
@@ -289,6 +294,12 @@ namespace Yarn.Unity
 #if ENABLE_LEGACY_INPUT_MANAGER
         internal void Update()
         {
+            // If the game is paused, don't process input for dialogue advancement.
+            if (Time.timeScale == 0f)
+            {
+                return;
+            }
+
             var advance = false;
 
             if (continueActionType == ContinueActionType.KeyCode)
